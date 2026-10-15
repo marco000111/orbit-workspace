@@ -1,0 +1,79 @@
+/* Small, purposeful motion and iPhone safe-area support. */
+@keyframes orbit-enter {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes progress-fill {
+  from { transform: scaleX(.08); }
+  to { transform: scaleX(1); }
+}
+@keyframes check-pop {
+  0% { transform: scale(.5); opacity: 0; }
+  65% { transform: scale(1.18); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes focus-orbit-in {
+  from { transform: rotate(-12deg) scale(.94); opacity: .45; }
+  to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+.sidebar { padding-top: max(24px, env(safe-area-inset-top)); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+.shell { min-height: 100svh; }
+.metric-card { animation: orbit-enter .42s cubic-bezier(.2,.7,.25,1) both; }
+.metric-card:nth-child(2) { animation-delay: 45ms; }
+.metric-card:nth-child(3) { animation-delay: 90ms; }
+.metric-card:nth-child(4) { animation-delay: 135ms; }
+.project-card { animation: orbit-enter .4s cubic-bezier(.2,.7,.25,1) both; }
+.project-card:nth-child(2) { animation-delay: 55ms; }
+.project-card:nth-child(3) { animation-delay: 110ms; }
+.metric-card, .project-card, .kanban-card { transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.metric-card:hover, .project-card:hover, .kanban-card:hover { border-color: #3a4d6b; box-shadow: 0 10px 30px #03081040; }
+.kanban-card:hover { transform: translateY(-2px); }
+.primary-btn:active, .outline-btn:active { transform: scale(.97); }
+.check-btn.checked svg { animation: check-pop .24s cubic-bezier(.2,.75,.25,1.3) both; }
+.progress-track i { transform-origin: left center; animation: progress-fill .65s cubic-bezier(.2,.7,.25,1) both; }
+.focus-art .r1 { animation: focus-orbit-in .8s ease-out both; }
+.focus-art .r2 { animation: focus-orbit-in .9s ease-out 70ms both; }
+.brand:hover .orbit-mark { transform: rotate(12deg) scale(1.06); }
+.nav-item, .project-link, .task-row, .search-result { transition: color .16s ease, background-color .16s ease, border-color .16s ease; }
+
+@supports (padding: max(0px)) {
+  @media (max-width: 680px) {
+    .topbar { height: calc(72px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); }
+    .content { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+    .overlay { padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left)); }
+    .toast { bottom: calc(18px + env(safe-area-inset-bottom)); }
+  }
+}
+
+@media (max-width: 680px) {
+  .modal .field input, .modal .field select, .modal .field textarea,
+  .field input, .field select, .field textarea, .search-box input,
+  .inline-search input { font-size: 16px; }
+  .chart-wrap { min-width: 0; }
+  .row-more { opacity: .78; }
+}
+
+@media (max-width: 380px) {
+  .metric-card { min-width: 0; }
+  .metric-label { letter-spacing: -.02em; }
+  .task-main > span { max-width: 100%; }
+  .modal-footer { flex-wrap: wrap; }
+}
+
+@media (pointer: coarse) and (max-width: 680px) {
+  .icon-btn, .tiny-add { min-width: 40px; min-height: 40px; }
+  .filter-tabs button, .column-add { min-height: 40px; }
+  .check-btn { width: 22px; height: 22px; flex-basis: 22px; }
+  .kanban { scroll-snap-type: x proximity; }
+  .kanban-column { scroll-snap-align: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
