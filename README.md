@@ -23,8 +23,10 @@ Build for production with `npm run build`, then preview with `npm run preview`. 
 - Projects with descriptions, colors, target dates, and completion metrics.
 - Tasks with descriptions, status, priority, due date, project, and tags. Search, filtering, and sorting are available.
 - Project list and Kanban board with drag and drop. Use the drag handle; keyboard sensors are enabled.
-- Profile display name, compact mode, accent color, JSON export, and sample data restore.
+- New workspaces start empty; a bilingual animated welcome guide explains how to create projects, add tasks, and track progress on first visit.
+- Profile display name, compact mode, accent color, and JSON export.
 - Responsive mobile navigation, iPhone safe-area support, larger touch targets, Safari-friendly form sizing, and reduced-motion support.
+- Vercel Web Analytics is mounted in the React entry point. Enable Analytics for the project in the Vercel dashboard; metrics appear after a production deployment and visitor traffic.
 - Keyboard shortcuts: `Ctrl+K` / `⌘K` for search; `Ctrl+N` / `⌘N` for a new task; `Esc` closes overlays.
 
 ## Privacy and security / الخصوصية والأمان

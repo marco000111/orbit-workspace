@@ -42,6 +42,10 @@ ORBIT مساحة بسيطة لترتيب المهام والمشروعات وم�
 
 ORBIT is a focused place to organize projects, track tasks, and see progress at a glance. The dashboard surfaces today's work, upcoming deadlines, overdue tasks, completion totals, weekly activity, and project progress. A Kanban board helps move tasks through To Do, In Progress, and Done.
 
+Vercel Web Analytics is mounted for page-view measurement after Analytics is enabled in the Vercel project dashboard and the app is deployed there.
+
+New workspaces start empty instead of showing sample tasks or projects. On the first visit, an animated Arabic/English welcome guide explains the benefits and the steps to create a project, add tasks, and track progress. يبدأ ORBIT بمساحة فاضية، وبتظهر للمستخدم أول مرة نافذة متحركة بالعربي والإنجليزي تشرح الفايدة وطريقة الاستخدام.
+
 ### 🧭 How to use it
 
 1. **Start at Overview** to review today's focus, deadlines, and project progress.
